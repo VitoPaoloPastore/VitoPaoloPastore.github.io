@@ -11,54 +11,43 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* Ph.D in Bioengineering and robotics, University of Genoa, 2018
+* M.S. in Bioengineering, University of Genoa, 2014
+* B.S. in Biomedical engineering,  University of Genoa, 2012
 
 Work experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * Github University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* 2020-2022 Postdoc Researcher
+ 
+  * Italian Institute of Technology (IIT), Genoa, Italy.
+  * Humanoid Sensing and Perception group
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* 2018-2020 Postdoc Researcher
+  * IBM Research Almaden, San Jose, California, USA
+  * Cellular engineering group 
 
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* 2017-2018: Research Internship
+  * University of Genoa
+  * NBT Lab
+* Fall 2013: 2017-2018: Research Internship
+  * University of Genoa
+  * NBT Lab
   
-Skills
+<div style="text-align: left; margin-top: 20px;">
+  <a href="../_data/CV.pdf"  download>
+    <button style="background-color: #4CAF50; color: white; padding: 14px 20px; border: none; cursor: pointer; text-align: center; font-size: 16px;">
+      Download CV
+    </button>
+  </a>
+</div>
+<!-- Skills
 ======
 * Skill 1
 * Skill 2
   * Sub-skill 2.1
   * Sub-skill 2.2
   * Sub-skill 2.3
-* Skill 3
+* Skill 3 -->
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+
   
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
