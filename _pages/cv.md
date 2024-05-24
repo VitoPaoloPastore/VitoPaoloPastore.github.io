@@ -34,7 +34,7 @@ Work experience
   * NBT Lab
   
 <div style="text-align: left; margin-top: 20px;">
-  <a href="../_data/CV.pdf"  download>
+  <a href="../files/CV.pdf"  download>
     <button style="background-color: #4CAF50; color: white; padding: 14px 20px; border: none; cursor: pointer; text-align: center; font-size: 16px;">
       Download CV
     </button>
