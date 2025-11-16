@@ -4,7 +4,7 @@ title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
-
+<h2>📚 Recent Publications (latest 20)</h2>
 {% if site.author.googlescholar %}
   <div class="wordwrap">Here's the list of my latest 20 publications. You can find a complete list on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
 {% endif %}
