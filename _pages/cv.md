@@ -25,6 +25,16 @@ redirect_from:
 <i class="fas fa-briefcase" style="color:#2196F3; margin-right:0.5rem;"></i>
 <b>Work Experience</b><br>
 
+&nbsp;&nbsp;• <b>2025–present</b> — Assistant Professor (Tenure-track)  
+&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-university" style="color:#757575; margin-right:0.4rem;"></i>University of Genoa  
+&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-brain" style="color:#9C27B0; margin-right:0.4rem;"></i>Machine Learning Genoa Center (MaLGa), DIBRIS  
+<br>
+
+&nbsp;&nbsp;• <b>2022–2025</b> — Assistant Professor (Non-Tenure-track)  
+&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-university" style="color:#757575; margin-right:0.4rem;"></i>University of Genoa  
+&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-brain" style="color:#9C27B0; margin-right:0.4rem;"></i>Machine Learning Genoa Center (MaLGa), DIBRIS  
+<br>
+
 &nbsp;&nbsp;• <b>2020–2022</b> — Postdoctoral Researcher  
 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-building" style="color:#757575; margin-right:0.4rem;"></i>Italian Institute of Technology (IIT), Genoa, Italy  
 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-robot" style="color:#9C27B0; margin-right:0.4rem;"></i>Humanoid Sensing and Perception group  
@@ -44,5 +54,3 @@ redirect_from:
 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-university" style="color:#757575; margin-right:0.4rem;"></i>University of Genoa  
 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-vials" style="color:#9C27B0; margin-right:0.4rem;"></i>NBT Lab  
 </p>
-
-  
