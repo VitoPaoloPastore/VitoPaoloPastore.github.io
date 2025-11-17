@@ -9,29 +9,40 @@ redirect_from:
 
 {% include base_path %}
 
-Education
-======
-* Ph.D in Bioengineering and robotics, University of Genoa, 2018
-* M.S. in Bioengineering, University of Genoa, 2014
-* B.S. in Biomedical engineering,  University of Genoa, 2012
+<!-- Education -->
+<p style="font-size: 1.1rem; line-height: 1.6;">
+<i class="fas fa-graduation-cap" style="color:#4CAF50; margin-right:0.5rem;"></i>
+<b>Education</b><br>
+&nbsp;&nbsp;• Ph.D in Bioengineering and Robotics, University of Genoa, 2018<br>
+&nbsp;&nbsp;• M.S. in Bioengineering, University of Genoa, 2014<br>
+&nbsp;&nbsp;• B.S. in Biomedical Engineering, University of Genoa, 2012
+</p>
 
-Work experience
-======
-* 2020-2022 Postdoc Researcher
- 
-  * Italian Institute of Technology (IIT), Genoa, Italy.
-  * Humanoid Sensing and Perception group
+<br>
 
-* 2018-2020 Postdoc Researcher
-  * IBM Research Almaden, San Jose, California, USA
-  * Cellular engineering group 
+<!-- Work Experience -->
+<p style="font-size: 1.1rem; line-height: 1.6;">
+<i class="fas fa-briefcase" style="color:#2196F3; margin-right:0.5rem;"></i>
+<b>Work Experience</b><br>
 
-* 2017-2018: Research Internship
-  * University of Genoa
-  * NBT Lab
-* Fall 2013: 2017-2018: Research Internship
-  * University of Genoa
-  * NBT Lab
+&nbsp;&nbsp;• <b>2020–2022</b> — Postdoctoral Researcher  
+&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-building" style="color:#757575; margin-right:0.4rem;"></i>Italian Institute of Technology (IIT), Genoa, Italy  
+&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-robot" style="color:#9C27B0; margin-right:0.4rem;"></i>Humanoid Sensing and Perception group  
+<br>
 
+&nbsp;&nbsp;• <b>2018–2020</b> — Postdoctoral Researcher  
+&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-flask" style="color:#757575; margin-right:0.4rem;"></i>IBM Research Almaden, San Jose, California, USA  
+&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-dna" style="color:#9C27B0; margin-right:0.4rem;"></i>Cellular Engineering group  
+<br>
+
+&nbsp;&nbsp;• <b>2017–2018</b> — Research Internship  
+&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-university" style="color:#757575; margin-right:0.4rem;"></i>University of Genoa  
+&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-vials" style="color:#9C27B0; margin-right:0.4rem;"></i>NBT Lab  
+<br>
+
+&nbsp;&nbsp;• <b>Fall 2013</b> — Research Internship  
+&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-university" style="color:#757575; margin-right:0.4rem;"></i>University of Genoa  
+&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-vials" style="color:#9C27B0; margin-right:0.4rem;"></i>NBT Lab  
+</p>
 
   
