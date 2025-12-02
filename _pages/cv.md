@@ -25,7 +25,7 @@ redirect_from:
 <i class="fas fa-briefcase" style="color:#2196F3; margin-right:0.5rem;"></i>
 <b>Work Experience</b><br>
 
-&nbsp;&nbsp;• <b>20/11/2025–present</b> — Visiting Researcher
+&nbsp;&nbsp;• <b>20/11/2025–20/12/2025</b> — Visiting Researcher
 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-university" style="color:#757575; margin-right:0.4rem;"></i>Télécom Paris  
 &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-brain" style="color:#9C27B0; margin-right:0.4rem;"></i>Polytechnic Institute of Paris
 <br>
