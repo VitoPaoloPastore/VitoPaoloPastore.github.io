@@ -1,11 +1,112 @@
 ---
 permalink: /
 title: "Vito Paolo Pastore"
+excerpt: "Vito Paolo Pastore is a tenure-track assistant professor and researcher in machine learning, computer vision, fairness, and biomedical image analysis at the University of Genoa."
 author_profile: true
+robots: "index, follow"
 redirect_from:
   - /about/
   - /about.html
 ---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": "https://vitopaolopastore.github.io/#profilepage",
+  "url": "https://vitopaolopastore.github.io/",
+  "name": "Vito Paolo Pastore",
+  "description": "Academic profile of Vito Paolo Pastore, a tenure-track assistant professor and researcher in machine learning, computer vision, fairness, and biomedical image analysis at the University of Genoa.",
+  "inLanguage": "en",
+  "mainEntity": {
+    "@type": "Person",
+    "@id": "https://vitopaolopastore.github.io/#person",
+    "name": "Vito Paolo Pastore",
+    "givenName": "Vito Paolo",
+    "familyName": "Pastore",
+    "url": "https://vitopaolopastore.github.io/",
+    "jobTitle": "Tenure-track Assistant Professor in Computer Science",
+    "hasOccupation": {
+      "@type": "Occupation",
+      "name": "Researcher",
+      "occupationLocation": {
+        "@type": "City",
+        "name": "Genoa, Italy"
+      },
+      "skills": [
+        "Machine learning",
+        "Computer vision",
+        "Model debiasing",
+        "Medical image analysis",
+        "Biological image analysis"
+      ]
+    },
+    "worksFor": {
+      "@type": "CollegeOrUniversity",
+      "@id": "https://www.unige.it/#organization",
+      "name": "University of Genoa",
+      "url": "https://www.unige.it/",
+      "department": {
+        "@type": "Organization",
+        "name": "DIBRIS",
+        "url": "https://dibris.unige.it/"
+      }
+    },
+    "memberOf": {
+      "@type": "ResearchOrganization",
+      "name": "Machine Learning Genoa Center (MaLGa)",
+      "url": "https://malga.unige.it/"
+    },
+    "affiliation": {
+      "@type": "ResearchOrganization",
+      "name": "Istituto Italiano di Tecnologia",
+      "url": "https://www.iit.it/"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "@id": "https://www.unige.it/#organization",
+      "name": "University of Genoa",
+      "url": "https://www.unige.it/"
+    },
+    "knowsAbout": [
+      "Machine learning",
+      "Computer vision",
+      "Algorithmic fairness",
+      "Model debiasing",
+      "Anomaly detection",
+      "Medical image analysis",
+      "Biological image analysis",
+      "Self-supervised learning",
+      "Few-shot learning",
+      "Federated learning"
+    ],
+    "identifier": [
+      {
+        "@type": "PropertyValue",
+        "propertyID": "ORCID",
+        "value": "0000-0002-5827-5571",
+        "url": "https://orcid.org/0000-0002-5827-5571"
+      },
+      {
+        "@type": "PropertyValue",
+        "propertyID": "Google Scholar",
+        "value": "-boYCXcAAAAJ",
+        "url": "https://scholar.google.com/citations?user=-boYCXcAAAAJ"
+      }
+    ],
+    "sameAs": [
+      "https://dibris.unige.it/vito.paolo.pastore@unige.it",
+      "https://unige.iris.cineca.it/cris/rp/rp08693?type=all",
+      "https://orcid.org/0000-0002-5827-5571",
+      "https://scholar.google.com/citations?user=-boYCXcAAAAJ",
+      "https://ieeexplore.ieee.org/author/37085497249",
+      "https://openreview.net/profile?id=~Vito_Paolo_Pastore1",
+      "https://loop.frontiersin.org/people/282459/overview",
+      "https://github.com/VitoPaoloPastore"
+    ]
+  }
+}
+</script>
 
 <style>
 /* ---------------------------------------------------------------
@@ -280,7 +381,7 @@ redirect_from:
 
 <div class="home">
 
-  <p class="lede">I work on making machine learning models <em>fair, reliable and usable when data is scarce</em> &mdash; and on putting them to work in medicine and biology, where those three things decide whether a model is worth deploying at all.</p>
+  <p class="lede">I am <em>Vito Paolo Pastore</em>, a tenure-track assistant professor and researcher in Computer Science at the University of Genoa and MaLGa. I work on making machine learning models <em>fair, reliable and usable when data is scarce</em> &mdash; and on putting them to work in medicine and biology, where those three things decide whether a model is worth deploying at all.</p>
 
   <!-- ============================================================ -->
   <section class="section">
