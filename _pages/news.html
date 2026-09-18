@@ -9,145 +9,479 @@ redirect_from:
 
 {% include base_path %}
 
-<hr>
+<style>
+/* ---------------------------------------------------------------
+   News page. Scoped under .news so nothing here leaks into the
+   rest of the Minimal Mistakes / academicpages theme.
+   Change --news-accent to your theme link colour if you want.
+   --------------------------------------------------------------- */
 
-<h2>📄 Publications & Papers</h2>
-<div class="news-item">
-  <h3>Paper accepted at <strong>ECCV 2026</strong></h3>
-  <p>- <strong> AracNet: Revealing Debiasing Signals across Layers with Shallow Monitors </strong></p>
+.news {
+  --news-accent: #2f7d95;
+  --news-rule: rgba(128, 128, 128, 0.28);
+  --news-wash: rgba(128, 128, 128, 0.07);
+  line-height: 1.5;
+}
+
+/* Section headings ------------------------------------------------ */
+
+.news .section {
+  margin: 0 0 3.25rem;
+}
+
+.news .section:last-child {
+  margin-bottom: 0;
+}
+
+.news .section__title {
+  margin: 0 0 1.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--news-rule);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* Feed: venue marker in a left column, content against a hairline - */
+
+.news .feed {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.news .feed__item {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  align-items: start;
+  margin: 0;
+  padding: 0;
+}
+
+.news .feed__marker {
+  padding: 0.1rem 1.5rem 0 0;
+  text-align: right;
+}
+
+.news .feed__venue {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.news .feed__year {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.6;
+}
+
+.news .feed__body {
+  padding: 0 0 2.1rem 1.75rem;
+  border-left: 1px solid var(--news-rule);
+}
+
+.news .feed__item:last-child .feed__body {
+  padding-bottom: 0;
+}
+
+/* Entries --------------------------------------------------------- */
+
+.news .entry {
+  margin: 0 0 0.9rem;
+  max-width: 64ch;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.news .entry:last-child {
+  margin-bottom: 0;
+}
+
+.news .entry__note,
+.news .note {
+  display: block;
+  margin-top: 0.2rem;
+  max-width: 64ch;
+  font-size: 0.875rem;
+  font-weight: 400;
+  opacity: 0.72;
+}
+
+.news .link {
+  display: inline-block;
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--news-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+}
+
+.news .link:hover,
+.news .link:focus {
+  text-decoration-thickness: 2px;
+}
+
+.news a:focus-visible {
+  outline: 2px solid var(--news-accent);
+  outline-offset: 3px;
+}
+
+/* Ledger: short year / label pairs (roles, qualifications) --------- */
+
+.news .ledger {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.news .ledger__row {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  align-items: baseline;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--news-rule);
+}
+
+.news .ledger__row:last-child {
+  border-bottom: 0;
+}
+
+.news .ledger__venue {
+  padding-right: 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.news .ledger__label {
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+/* Open positions: the one filled block on the page ---------------- */
+
+.news .callout {
+  padding: 1.25rem 1.5rem;
+  background: var(--news-wash);
+  border-left: 3px solid var(--news-accent);
+}
+
+.news .callout p {
+  margin: 0 0 0.7rem;
+  max-width: 64ch;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.news .callout p:last-child {
+  margin-bottom: 0;
+}
+
+/* Small screens: marker stacks above the entry -------------------- */
+
+@media (max-width: 40em) {
+  .news .feed__item {
+    grid-template-columns: 1fr;
+    padding-top: 1rem;
+    border-top: 1px solid var(--news-rule);
+  }
+
+  .news .feed__item:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .news .feed__marker {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 0 0 0.5rem;
+    text-align: left;
+  }
+
+  .news .feed__venue,
+  .news .feed__year {
+    display: inline;
+    margin-top: 0;
+  }
+
+  .news .feed__body {
+    padding: 0 0 1.5rem;
+    border-left: 0;
+  }
+
+  .news .ledger__row {
+    grid-template-columns: 1fr;
+  }
+
+  .news .ledger__venue {
+    padding: 0 0 0.15rem;
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .news * {
+    transition: none !important;
+  }
+}
+</style>
+
+<div class="news">
+
+  <!-- ============================================================ -->
+  <section class="section">
+    <h2 class="section__title">Accepted papers</h2>
+
+    <ol class="feed">
+
+      <li class="feed__item">
+        <div class="feed__marker">
+          <span class="feed__venue">ECCV</span>
+          <span class="feed__year">2026</span>
+        </div>
+        <div class="feed__body">
+          <p class="entry">AracNet: Revealing Debiasing Signals across Layers with Shallow Monitors</p>
+        </div>
+      </li>
+
+      <li class="feed__item">
+        <div class="feed__marker">
+          <span class="feed__venue">TMLR</span>
+          <span class="feed__year">2026</span>
+        </div>
+        <div class="feed__body">
+          <p class="entry">VT-DUDA: Visual Token Conditioning for Diffusion-guided Unsupervised Domain Adaptation</p>
+        </div>
+      </li>
+
+      <li class="feed__item">
+        <div class="feed__marker">
+          <span class="feed__venue">MICCAI</span>
+          <span class="feed__year">2026</span>
+        </div>
+        <div class="feed__body">
+          <p class="entry">CDPM-Align: Multi-Scale Guidance-Aligned Diffusion Pretraining for Robust Few-Shot Anatomical Landmark Detection
+            <span class="entry__note">Accepted as Oral Presentation</span>
+          </p>
+        </div>
+      </li>
+
+      <li class="feed__item">
+        <div class="feed__marker">
+          <span class="feed__venue">ICML</span>
+          <span class="feed__year">2026</span>
+        </div>
+        <div class="feed__body">
+          <p class="entry">Distribution Alignment for One-Shot Federated Learning via Optimal Transport</p>
+        </div>
+      </li>
+
+      <li class="feed__item">
+        <div class="feed__marker">
+          <span class="feed__venue">ICPR</span>
+          <span class="feed__year">2026</span>
+        </div>
+        <div class="feed__body">
+          <p class="entry">CutClean: Neural Network Pruning for Privacy-Preserving Inference</p>
+        </div>
+      </li>
+
+      <li class="feed__item">
+        <div class="feed__marker">
+          <span class="feed__venue">CVPR</span>
+          <span class="feed__year">2026</span>
+        </div>
+        <div class="feed__body">
+          <p class="entry">Bias In, Bias Out? Finding Unbiased Subnetworks in Vanilla Models</p>
+          <p class="entry">If you can describe it, they can see it: Cross-Modal Learning of Visual Concepts from Textual Descriptions
+            <span class="entry__note">Findings track</span>
+          </p>
+        </div>
+      </li>
+
+      <li class="feed__item">
+        <div class="feed__marker">
+          <span class="feed__venue">WACV</span>
+          <span class="feed__year">2026</span>
+        </div>
+        <div class="feed__body">
+          <p class="entry">How I Met Your Bias: Investigating Bias Amplification in Diffusion Models</p>
+          <p class="entry">Lose Your Self (LoYS): An Adversarial Entropy-Based Unsupervised Approach for Model Debiasing</p>
+        </div>
+      </li>
+
+      <li class="feed__item">
+        <div class="feed__marker">
+          <span class="feed__venue">TMLR</span>
+          <!-- TODO: add the year once confirmed, e.g. <span class="feed__year">2025</span> -->
+        </div>
+        <div class="feed__body">
+          <p class="entry">Say My Name: A Model's Bias Discovery Framework</p>
+          <a class="link" href="https://arxiv.org/abs/2408.09570">Read on arXiv</a>
+        </div>
+      </li>
+
+      <li class="feed__item">
+        <div class="feed__marker">
+          <span class="feed__venue">NeurIPS</span>
+          <span class="feed__year">2025</span>
+        </div>
+        <div class="feed__body">
+          <p class="entry">Diffusing DeBias: Synthetic Bias Amplification for Model Debiasing</p>
+          <a class="link" href="https://arxiv.org/abs/2502.09564">Read on arXiv</a>
+        </div>
+      </li>
+
+      <li class="feed__item">
+        <div class="feed__marker">
+          <span class="feed__venue">WACV</span>
+          <span class="feed__year">2025</span>
+        </div>
+        <div class="feed__body">
+          <p class="entry">Self-Supervised Pre-Training with Diffusion Model for Few-Shot Landmark Detection in X-Ray Images</p>
+          <p class="entry">Looking at Model Debiasing through the Lens of Anomaly Detection</p>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="section">
+    <h2 class="section__title">Workshops, tutorials and sessions</h2>
+
+    <ol class="feed">
+
+      <li class="feed__item">
+        <div class="feed__marker">
+          <span class="feed__venue">ECCV</span>
+          <span class="feed__year">2026</span>
+        </div>
+        <div class="feed__body">
+          <p class="entry">Co-organising the 3rd FAILED workshop
+            <span class="entry__note">Fairness and ethics towards transparent AI: model debiasing. Malm&ouml;, Sweden.</span>
+          </p>
+          <a class="link" href="https://3rd-failed-workshop-eccv-2026.github.io/">Workshop website</a>
+        </div>
+      </li>
+
+      <li class="feed__item">
+        <div class="feed__marker">
+          <span class="feed__venue">ISBI</span>
+          <span class="feed__year">2026</span>
+        </div>
+        <div class="feed__body">
+          <p class="entry">Co-organised a special session on safety and reliability in medical imaging
+            <span class="entry__note">London, United Kingdom.</span>
+          </p>
+          <a class="link" href="https://biomedicalimaging.org/2026/special-sessions/">Session details</a>
+        </div>
+      </li>
+
+      <li class="feed__item">
+        <div class="feed__marker">
+          <span class="feed__venue">ICIAP</span>
+          <span class="feed__year">2025</span>
+        </div>
+        <div class="feed__body">
+          <p class="entry">Co-organised the tutorial &ldquo;A journey through model debiasing&rdquo;</p>
+          <a class="link" href="https://a-journey-through-model-debiasing.github.io/">Tutorial website</a>
+        </div>
+      </li>
+
+      <li class="feed__item">
+        <div class="feed__marker">
+          <span class="feed__venue">ICCV</span>
+          <span class="feed__year">2025</span>
+        </div>
+        <div class="feed__body">
+          <p class="entry">Co-organised the 2nd FAILED workshop
+            <span class="entry__note">Fairness and ethics towards transparent AI: model debiasing. Honolulu, Hawaii, USA.</span>
+          </p>
+          <a class="link" href="https://2nd-failed-workshop-iccv-2025.github.io/">Workshop website</a>
+        </div>
+      </li>
+
+      <li class="feed__item">
+        <div class="feed__marker">
+          <span class="feed__venue">ECCV</span>
+          <span class="feed__year">2024</span>
+        </div>
+        <div class="feed__body">
+          <p class="entry">Co-organised the 1st FAILED workshop
+            <span class="entry__note">Fairness and ethics towards transparent AI: model debiasing. Milan, Italy.</span>
+          </p>
+          <a class="link" href="https://failed-workshop-eccv-2024.github.io/">Workshop website</a>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="section">
+    <h2 class="section__title">Editorial roles and recognition</h2>
+
+    <ul class="ledger">
+      <li class="ledger__row">
+        <span class="ledger__venue">NeurIPS 2026</span>
+        <span class="ledger__label">Area Chair</span>
+      </li>
+      <li class="ledger__row">
+        <span class="ledger__venue">ICML 2026</span>
+        <span class="ledger__label">Area Chair</span>
+      </li>
+      <li class="ledger__row">
+        <span class="ledger__venue">ICML 2025</span>
+        <span class="ledger__label">Top Area Chair</span>
+      </li>
+      <li class="ledger__row">
+        <span class="ledger__venue">CVPR 2025</span>
+        <span class="ledger__label">Outstanding Reviewer</span>
+      </li>
+      <li class="ledger__row">
+        <span class="ledger__venue">MICCAI 2024</span>
+        <span class="ledger__label">Honorable mention, reviewing</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="section">
+    <h2 class="section__title">Qualifications</h2>
+
+    <ul class="ledger">
+      <li class="ledger__row">
+        <span class="ledger__venue">ASN</span>
+        <span class="ledger__label">National scientific qualification as Associate Professor, Informatics</span>
+      </li>
+      <li class="ledger__row">
+        <span class="ledger__venue">ASN</span>
+        <span class="ledger__label">National scientific qualification as Associate Professor, Computer Engineering</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="section">
+    <h2 class="section__title">Open positions</h2>
+
+    <div class="callout">
+      <p>I am looking for PhD students and postdocs to work on machine learning and computer vision, with applications in medical, biological and industrial settings.</p>
+      <p>Open calls are posted here as they become available.</p>
+      <p><a class="link" href="https://malga.unige.it/#open-positions">All open positions at MaLGa</a></p>
+    </div>
+  </section>
+
 </div>
-<hr>
-<div class="news-item">
-  <h3>Paper accepted at <strong>TMLR</strong></h3>
-  <p>- <strong>VT-DUDA: Visual Token Conditioning for Diffusion-guided Unsupervised Domain Adaptation</strong></p
-</div>
-<hr>
-<div class="news-item">
-  <h3>Paper accepted at <strong>MICCAI 2026</strong></h3> (Selected for Oral Presentation)
-  <p>- <strong> CDPM-Align: Multi-Scale Guidance-Aligned Diffusion Pretraining for Robust Few-Shot Anatomical Landmark Detection </strong></p>
-</div>
-<hr>
-<div class="news-item">
-  <h3>Paper accepted at <strong>ICML 2026</strong></h3>
-  <p>- <strong> Distribution Alignment for One-Shot Federated Learning via Optimal Transport </strong></p>
-</div>
-<hr>
-
-<div class="news-item">
-  <h3>paper accepted at <strong>ICPR 2026</strong></h3>
-  <p>- <strong> CutClean: Neural Network Pruning for Privacy-Preserving Inference </strong></p>
-</div>
-<hr>
-
-
-
-<div class="news-item">
-  <h3>Two papers accepted at <strong>CVPR 2026</strong></h3>
-  <p>- <strong> Bias In, Bias Out? Finding Unbiased Subnetworks in Vanilla Models </strong></p>
-  <p>- <strong> If you can describe it, they can see it: Cross-Modal Learning of Visual Concepts from Textual Descriptions </strong> (CVPR Findings) </p>
-</div>
-<hr>
-
-
-
-<div class="news-item">
-  <h3>Two papers accepted at <strong>WACV 2026</strong></h3>
-  <p>- <strong>How I Met Your Bias: Investigating Bias Amplification in Diffusion Models</strong></p>
-  <p>- <strong>Lose Your Self (LoYS): An adversarial entropy-based unsupervised approach for model debiasing</strong></p>
-</div>
-<hr>
-
-<div class="news-item">
-  <h3>Paper accepted at <strong>TMLR</strong></h3>
-  <p>- <strong>Say My Name: a Model's Bias Discovery Framework</strong></p>
-  <p>👉 <em><a href="https://arxiv.org/abs/2408.09570"> Arxiv link </a></em></p>
-</div>
-<hr>
-
-<div class="news-item">
-  <h3>Paper accepted at <strong>NeurIPS 2025</strong></h3>
-  <p>- <strong>Diffusing DeBias: Synthetic Bias Amplification for Model Debiasing</strong></p>
-  <p>👉 <em><a href="https://arxiv.org/abs/2502.09564"> Arxiv link </a></em></p>
-</div>
-
-<hr>
-
-<div class="news-item">
-  <h3>Two papers accepted at <strong>WACV 2025</strong></h3>
-  <p>- <strong>Self-supervised pre-training with diffusion model for few-shot landmark detection in x-ray images</strong></p>
-  <p>- <strong>Looking at model debiasing through the lens of anomaly detection</strong></p>
-</div>
-<hr>
-
-<h2>🏛️ Organization & Service</h2>
-
-<div class="news-item">
-  <h3>Co-organizing the <strong>3rd FAILED Workshop</strong> at <strong>ICCV 2025</strong></h3>
-  <p>Fairness and ethics towards transparent AI: model #Debiasing</p>
-  <p><strong>Malmö, Sweden </strong></p>
-  <p>👉 <em><a href="https://3rd-failed-workshop-eccv-2026.github.io/">Workshop Website </a></em></p>
-</div>
-<div class="news-item">
-  <h3>Co-organized a Special Session at <strong>ISBI 2026</strong></h3>
-  <p><strong>Safety and Reliability in Medical Imaging</strong>, London, United Kingdom</p>
-  <p>👉 <em><a href="https://biomedicalimaging.org/2026/special-sessions/#:~:text=Abstract%3A%20The%20ISBI%202026%20special,AI%20systems%20for%20biomedical%20imaging."> Session Website </a></em></p>
-</div>
-
-<hr>
-
-<div class="news-item">
-  <h3>Co-organized Tutorial at <strong>ICIAP 2025</strong></h3>
-  <p><strong>"A journey through Model Debiasing"</strong></p>
-  <p>👉 <em><a href="https://a-journey-through-model-debiasing.github.io/"> Tutorial Website </a></em></p>
-</div>
-
-<hr>
-
-<div class="news-item">
-  <h3>Co-organizing the <strong>2nd FAILED Workshop</strong> at <strong>ICCV 2025</strong></h3>
-  <p>Fairness and ethics towards transparent AI: model #Debiasing</p>
-  <p><strong>Honolulu, Hawaii, USA</strong></p>
-  <p>👉 <em><a href="https://2nd-failed-workshop-iccv-2025.github.io/">Workshop Website </a></em></p>
-</div>
-
-<hr>
-
-<div class="news-item">
-  <h3>Co-organized the <strong>1st FAILED Workshop</strong> at <strong>ECCV 2024</strong></h3>
-  <p>👉 <em><a href="https://failed-workshop-eccv-2024.github.io/">Workshop Website </a></em></p>
-</div>
-
-<hr>
-
-<h2>🏅 Awards & Recognitions</h2>
-
-<ul>
-  <li><strong>Area Chair – NeurIPS 2026</strong></li>
-  <li><strong>Area Chair – ICML 2026</strong></li>
-  <li><strong>Top Area Chair – ICML 2025</strong></li>
-  <li><strong>Outstanding Reviewer – CVPR 2025</strong></li>
-  <li><strong>Area Chair – ICML 2025</strong></li>
-  <li><strong>Honorable Reviewer Mention – MICCAI 2024</strong></li>
-</ul>
-
-<hr>
-
-<h2>🎓 Qualifications</h2>
-
-<ul>
-  <li><strong>National Scientific Qualification – Associate Professor (Informatics)</strong></li>
-  <li><strong>National Scientific Qualification – Associate Professor (Computer Engineering)</strong></li>
-</ul>
-
-<hr>
-
-<h2>🚀 Open Positions</h2>
-
-<p>Join us in contributing to groundbreaking research in <strong>machine learning</strong>, <strong>computer vision</strong>, and interdisciplinary applications in <strong>medical</strong>, <strong>biological</strong>, and <strong>industrial</strong> fields.</p>
-
-<p>🔍 <strong>PhD and Postdoc calls</strong> will be posted here.</p>
-
-<p>👉 For other opportunities in <strong>MaLGa</strong>:<br>
-<a href="https://malga.unige.it/#open-positions">https://malga.unige.it/#open-positions</a></p>
-
-<hr>
