@@ -1,3 +1,18 @@
+- date: "2026-10"
+  kind: award
+  venue: NeurIPS 2026
+  title: Top Area Chair
+
+- date: "2026-10"
+  kind: paper
+  venue: WACV 2027
+  title: "PACER: Curriculum Self-Training with Spatial Uncertainty for Pseudo-Label Selection in Few-Shot Anatomical Landmark Detection"
+
+- date: "2026-10"
+  kind: paper
+  venue: WACV 2027
+  title: "Beyond the Generative Trilemma: Bias Amplification in Diffusion-GAN Hybrids"
+
 - date: "2026-09"
   kind: event
   venue: ECCV 2026

@@ -1,22 +1,16 @@
-# _data/publications.yml
-#
-# IMPORTANT: this file must be saved in _data/ under exactly this name.
-# research.md and about.md read `site.data.publications`, which comes from
-# the filename. A file called publications-full.yml is NOT picked up.
-#
-# Built from your Google Scholar CSV export: 92 rows, minus 8 non-paper
-# records and 4 duplicates = 80 papers.
-#
-#   threads:  bias    model debiasing and fairness
-#             medimg  clinical / medical imaging
-#             bioimg  biological and microscopy imaging
-#             learn   transfer, self-supervised, few-shot, federated learning
-#             (the 2014-2018 neuronal work is kept on record with no tags)
-#   selected: true puts it on the home page. Rule used: highest-profile
-#             venue per thread, 2024 onwards, max 3 per thread.
-#
-# Thread tags are keyword-guessed and need your review.
-
+- title: 'PACER: Curriculum Self-Training with Spatial Uncertainty for Pseudo-Label Selection in Few-Shot Anatomical Landmark Detection'
+  venue: WACV
+  year: 2027
+  threads:
+  - learn
+  - medimg
+  selected: false
+- title: 'Beyond the Generative Trilemma: Bias Amplification in Diffusion-GAN Hybrids'
+  venue: WACV
+  year: 2027
+  threads:
+  - bias
+  selected: false
 - title: A Pair-Weighing Strategy for Enhancing Clip Zero-Shot Classification for Chest X-Rays
   venue: ISBI
   year: 2026
