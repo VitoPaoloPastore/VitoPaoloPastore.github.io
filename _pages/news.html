@@ -64,7 +64,8 @@ redirect_from:
 </style>
 
 {% assign MONTHS = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec" | split: "," %}
-{% assign items = site.data.news | sort: "date" | reverse %}
+{% assign items = "" | split: "" %}
+{% if site.data.news %}{% assign items = site.data.news | sort: "date" | reverse %}{% endif %}
 
 <div class="nw">
 
@@ -76,6 +77,10 @@ redirect_from:
     <button type="button" class="chip" data-kind="award" aria-pressed="false">Recognition</button>
   </div>
   <p class="status" role="status" aria-live="polite"></p>
+
+  {% if items.size == 0 %}
+  <p class="status">No news items found. Add <code>_data/news.yml</code> to the repository.</p>
+  {% endif %}
 
   <ol class="feed">
   {% assign prev = "" %}
