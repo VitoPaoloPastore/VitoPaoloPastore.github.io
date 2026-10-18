@@ -1,0 +1,494 @@
+# _data/publications.yml
+#
+# IMPORTANT: this file must be saved in _data/ under exactly this name.
+# research.md and about.md read `site.data.publications`, which comes from
+# the filename. A file called publications-full.yml is NOT picked up.
+#
+# Built from your Google Scholar CSV export: 92 rows, minus 8 non-paper
+# records and 4 duplicates = 80 papers.
+#
+#   threads:  bias    model debiasing and fairness
+#             medimg  clinical / medical imaging
+#             bioimg  biological and microscopy imaging
+#             learn   transfer, self-supervised, few-shot, federated learning
+#             (the 2014-2018 neuronal work is kept on record with no tags)
+#   selected: true puts it on the home page. Rule used: highest-profile
+#             venue per thread, 2024 onwards, max 3 per thread.
+#
+# Thread tags are keyword-guessed and need your review.
+
+- title: A Pair-Weighing Strategy for Enhancing Clip Zero-Shot Classification for Chest X-Rays
+  venue: ISBI
+  year: 2026
+  threads:
+  - medimg
+  selected: false
+- title: 'Automated Landmark Detection for assessing hip conditions: A Cross-Modality Validation of MRI versus X-ray'
+  venue: ISBI
+  year: 2026
+  threads:
+  - medimg
+  selected: false
+- title: Bias In, Bias Out? Finding Unbiased Subnetworks in Vanilla Models
+  venue: CVPR
+  year: 2026
+  threads:
+  - bias
+  selected: true
+- title: 'CDPM-Align: Multi-Scale Guidance-Aligned Diffusion Pretraining for Robust Few-Shot Anatomical Landmark Detection'
+  venue: MICCAI
+  year: 2026
+  threads:
+  - learn
+  - medimg
+  selected: true
+- title: 'CutClean: Neural Network Pruning for Privacy-Preserving Inference'
+  venue: ICPR
+  year: 2026
+  threads:
+  - learn
+  selected: false
+- title: 'Diffusing debias: Synthetic bias amplification for model debiasing'
+  venue: NeurIPS
+  year: 2026
+  threads:
+  - bias
+  selected: true
+- title: Distribution Alignment for One-Shot Federated Learning via Optimal Transport
+  venue: ICML
+  year: 2026
+  threads:
+  - learn
+  selected: true
+- title: 'FiloAnalyzer: a deep learning approach for cell filopodia segmentation'
+  venue: BMC bioinformatics
+  year: 2026
+  threads:
+  - bioimg
+  - medimg
+  selected: true
+- title: 'How I Met Your Bias: Investigating Bias Amplification in Diffusion Models'
+  venue: WACV
+  year: 2026
+  threads:
+  - bias
+  selected: false
+- title: 'If you can describe it, they can see it: Cross-Modal Learning of Visual Concepts from Textual Descriptions'
+  venue: CVPR
+  year: 2026
+  threads: []
+  selected: false
+- title: Infinite dimensional generative sensing
+  venue: arXiv
+  year: 2026
+  threads: []
+  selected: false
+- title: 'Lose Your Self (LoYS): an adversarial entropy-based unsupervised approach for model debiasing'
+  venue: WACV
+  year: 2026
+  threads:
+  - bias
+  - learn
+  selected: false
+- title: 'VT-DUDA: Visual Token Conditioning for Diffusion-guided Unsupervised Domain Adaptation'
+  venue: TMLR
+  year: 2026
+  threads:
+  - learn
+  selected: true
+- title: 'A handful of data: evaluating few–shot incremental landmark detection'
+  venue: ICIAP
+  year: 2025
+  threads:
+  - learn
+  - medimg
+  selected: false
+- title: Are We Unbiased Yet? A Survey on Model Debiasing for Image Classification
+  venue: ''
+  year: 2025
+  threads:
+  - bias
+  selected: false
+- title: Are X-ray landmark detection models fair? A preliminary assessment and mitigation strategy
+  venue: ICCV
+  year: 2025
+  threads:
+  - bias
+  - medimg
+  selected: true
+- title: Artificial intelligence in chest radiography—A comparative review of human and veterinary medicine
+  venue: Veterinary sciences
+  year: 2025
+  threads:
+  - medimg
+  selected: false
+- title: Assessing the use of diffusion models for motion artifact correction in brain MRI
+  venue: ISBI
+  year: 2025
+  threads:
+  - medimg
+  selected: false
+- title: 'Confidently Biased (ConB): A Per-sample Confidence Approach for Unsupervised Model Debiasing'
+  venue: ICIAP
+  year: 2025
+  threads:
+  - bias
+  - learn
+  selected: false
+- title: 'DIMA: DIffusing Motion Artifacts for unsupervised correction in brain MRI images'
+  venue: IEEE Access
+  year: 2025
+  threads:
+  - learn
+  - medimg
+  selected: false
+- title: Disentangled representations of microscopy images
+  venue: IJCNN
+  year: 2025
+  threads:
+  - bioimg
+  - learn
+  selected: false
+- title: In-domain self-supervised learning for plankton image classification on a budget
+  venue: WACV
+  year: 2025
+  threads:
+  - bioimg
+  - learn
+  selected: true
+- title: Looking at model debiasing through the lens of anomaly detection
+  venue: WACV
+  year: 2025
+  threads:
+  - bias
+  - learn
+  selected: false
+- title: Phenotypic landscape of an invasive fungal pathogen reveals its unique biology
+  venue: Cell
+  year: 2025
+  threads:
+  - bioimg
+  selected: true
+- title: 'Say My Name: a Model''s Bias Discovery Framework'
+  venue: TMLR
+  year: 2025
+  threads:
+  - bias
+  selected: false
+- title: Self-supervised multi-modal learning for accurate MRI multiple sclerosis segmentation
+  venue: ISBI
+  year: 2025
+  threads:
+  - learn
+  - medimg
+  selected: false
+- title: Self-supervised pre-training with diffusion model for few-shot landmark detection in x-ray images
+  venue: WACV
+  year: 2025
+  threads:
+  - learn
+  - medimg
+  selected: true
+- title: A deep learning approach to direct immunofluorescence pattern recognition in autoimmune bullous diseases
+  venue: British Journal of Dermatology
+  year: 2024
+  threads:
+  - medimg
+  selected: false
+- title: Anomaly detection in feature space for detecting changes in phytoplankton populations
+  venue: Frontiers in Marine Science
+  year: 2024
+  threads:
+  - bioimg
+  - learn
+  selected: false
+- title: 'Computer vision and deep learning meet plankton: Milestones and future directions'
+  venue: Image and Vision Computing
+  year: 2024
+  threads:
+  - bioimg
+  selected: false
+- title: Ensembles of deep neural networks for the automatic detection of building facade defects from images
+  venue: IEEE Access
+  year: 2024
+  threads: []
+  selected: false
+- title: Identification of unknown genomes and closest known genomes
+  venue: ''
+  year: 2024
+  threads:
+  - bioimg
+  selected: false
+- title: In domain transfer learning for prostate MRI segmentation
+  venue: ICPR
+  year: 2024
+  threads:
+  - learn
+  - medimg
+  selected: false
+- title: Is in-domain data beneficial in transfer learning for landmarks detection in x-ray images?
+  venue: ISBI
+  year: 2024
+  threads:
+  - learn
+  - medimg
+  selected: false
+- title: 'Top-tuning: A study on transfer learning for an efficient alternative to fine tuning for image classification with fast kernel methods'
+  venue: Image and Vision Computing
+  year: 2024
+  threads:
+  - learn
+  selected: false
+- title: A control-oriented highway traffic model with multiple clusters of cavs
+  venue: '2023 IEEE 26th International Conference '
+  year: 2023
+  threads: []
+  selected: false
+- title: 'AGAMAS: A New Agent-Oriented Traffic'
+  venue: 'Multi-Agent Systems: 20th European Confe'
+  year: 2023
+  threads: []
+  selected: false
+- title: 'Agamas: a new agent-oriented traffic simulation framework for sumo'
+  venue: European Conference on Multi-Agent Syste
+  year: 2023
+  threads: []
+  selected: false
+- title: An efficient deep learning approach to identify dynamics in in vitro neural networks
+  venue: EMBC
+  year: 2023
+  threads: []
+  selected: false
+- title: An unsupervised learning approach to resolve phenotype to genotype mapping in budding yeasts vacuoles
+  venue: ICIAP
+  year: 2023
+  threads:
+  - bioimg
+  - learn
+  selected: false
+- title: Automatic video analysis and classification of sleep‐related hypermotor seizures and disorders of arousal
+  venue: Epilepsia
+  year: 2023
+  threads:
+  - medimg
+  selected: false
+- title: Deepening the role of excitation/inhibition balance in human iPSCs-derived neuronal networks coupled to MEAs during long-term development
+  venue: NER
+  year: 2023
+  threads: []
+  selected: false
+- title: Efficient unsupervised learning of biological images with compressed deep features
+  venue: Image and Vision Computing
+  year: 2023
+  threads:
+  - bioimg
+  - learn
+  selected: false
+- title: 'Food image classification: The benefit of in-domain transfer learning'
+  venue: ICIAP
+  year: 2023
+  threads:
+  - learn
+  selected: false
+- title: 'Gck-maps: A scene unbiased representation for efficient human action recognition'
+  venue: ICIAP
+  year: 2023
+  threads:
+  - bias
+  - learn
+  selected: false
+- title: In-domain versus out-of-domain transfer learning in plankton image classification
+  venue: Scientific Reports
+  year: 2023
+  threads:
+  - bioimg
+  - learn
+  selected: false
+- title: 'Incorporating diagnostic prior with segmentation: a deep learning pipeline for the automatic classification of autoimmune bullous skin diseases'
+  venue: ISBI
+  year: 2023
+  threads:
+  - medimg
+  selected: false
+- title: Semi-supervised classification of microorganism
+  venue: ''
+  year: 2023
+  threads:
+  - bioimg
+  selected: false
+- title: A deep learning approach to correlate cellular morphology and genetics
+  venue: ''
+  year: 2022
+  threads:
+  - bioimg
+  selected: false
+- title: A markerless pipeline to analyze spontaneous movements of preterm infants
+  venue: Computer Methods and Programs in Biomedi
+  year: 2022
+  threads: []
+  selected: false
+- title: A semi-automatic toolbox for markerless effective semantic feature extraction
+  venue: Scientific Reports
+  year: 2022
+  threads: []
+  selected: false
+- title: An anomaly detection approach for plankton species discovery
+  venue: ICIAP
+  year: 2022
+  threads:
+  - bioimg
+  - learn
+  selected: false
+- title: Efficient unsupervised learning for plankton images
+  venue: ICPR
+  year: 2022
+  threads:
+  - bioimg
+  - learn
+  selected: false
+- title: Semantic learning in a federated learning system
+  venue: ''
+  year: 2022
+  threads:
+  - learn
+  selected: false
+- title: Volatile organic compound detection and classification
+  venue: ''
+  year: 2022
+  threads:
+  - bioimg
+  selected: false
+- title: Convolutional autoencoder based model HistoCAE for segmentation of viable tumor regions in liver whole-slide images
+  venue: Scientific Reports
+  year: 2021
+  threads:
+  - medimg
+  selected: false
+- title: Annotation-free learning of plankton for classification and anomaly detection
+  venue: Scientific reports
+  year: 2020
+  threads:
+  - bioimg
+  - learn
+  selected: false
+- title: Embedded system to detect, track and classify plankton using a lensless video microscope
+  venue: arXiv
+  year: 2020
+  threads:
+  - bioimg
+  selected: false
+- title: 'Estimating Functional Connectivity and Topology in Large-Scale Neuronal Assemblies: Statistical and Computational Methods'
+  venue: ''
+  year: 2020
+  threads: []
+  selected: false
+- title: Monitoring Water Quality Using Plankton as Biosensor
+  venue: JDREAM. Journal of interDisciplinary REs
+  year: 2020
+  threads:
+  - bioimg
+  selected: false
+- title: Establishing the baseline for using plankton as biosensor
+  venue: Imaging
+  year: 2019
+  threads:
+  - bioimg
+  selected: false
+- title: High throughput analysis of plankton morphology and dynamic
+  venue: Imaging
+  year: 2019
+  threads:
+  - bioimg
+  selected: false
+- title: Stereo in-line holographic digital microscope
+  venue: Three-Dimensional and Multidimensional M
+  year: 2019
+  threads:
+  - bioimg
+  selected: false
+- title: Development of statistical and computational methods to estimate functional connectivity and topology in large-scale neuronal assemblies
+  venue: ''
+  year: 2018
+  threads: []
+  selected: false
+- title: Identification of excitatory-inhibitory links and network topology in large-scale neuronal assemblies from multi-electrode recordings
+  venue: PLoS computational biology
+  year: 2018
+  threads: []
+  selected: false
+- title: 'SPICODYN: a toolbox for the analysis of neuronal network dynamics and connectivity from multi-site spike signal recordings'
+  venue: Neuroinformatics
+  year: 2018
+  threads: []
+  selected: false
+- title: A toolbox for dynamic and connectivity analysis of neuronal spike trains data
+  venue: NER
+  year: 2017
+  threads: []
+  selected: false
+- title: Sphingomyelin as a myelin biomarker in CSF of acquired demyelinating neuropathies
+  venue: Scientific reports
+  year: 2017
+  threads:
+  - medimg
+  selected: false
+- title: FUNCTIONAL CONNECTIVITY OF HIGH-AND LOW-DENSITY HIPPOCAMPAL NEURAL NETWORKS COUPLED TO HIGH-DENSITY MEAs
+  venue: 'Front. Neurosci. Conference Abstract: ME'
+  year: 2016
+  threads: []
+  selected: false
+- title: From functional to structural connectivity using partial correlation in neuronal assemblies
+  venue: NER
+  year: 2016
+  threads: []
+  selected: false
+- title: 'TOOLCONNECT: A powerful toolbox for functional connectivity analysis of in vitro neural networks'
+  venue: Frontiers in Neuroscience
+  year: 2016
+  threads: []
+  selected: false
+- title: A new connectivity toolbox to infer topological features of in-vitro neural networks
+  venue: EMBC
+  year: 2015
+  threads: []
+  selected: false
+- title: 'Functional connectivity in cultured cortical networks during development: Comparison between correlation and information theory-based algorithms'
+  venue: NER
+  year: 2015
+  threads: []
+  selected: false
+- title: Functional connectivity in in vitro neuronal assemblies
+  venue: Frontiers in neural circuits
+  year: 2015
+  threads: []
+  selected: false
+- title: SPHINGO-AND PHOSPHO-LIPIDS METABOLISM IMPAIRMENT AS A POTENTIAL THERAPEUTIC TARGET IN CHARCOT-MARIE-TOOTH TYPE 1A (CMT1A) NEUROPATHY
+  venue: Journal of the Peripheral Nervous System
+  year: 2015
+  threads: []
+  selected: false
+- title: 'LIPID AMOUNT IN DEMYELINATING DISEASES: A TOOL TO MONITOR MYELINATION'
+  venue: Journal of the Peripheral Nervous System
+  year: 2014
+  threads:
+  - medimg
+  selected: false
+- title: Partial correlation analysis for functional connectivity studies in cortical networks
+  venue: BMC neuroscience
+  year: 2014
+  threads: []
+  selected: false
+- title: Deep learning methods for the automatic classification of autoimmune bullous skin diseases
+  venue: PROCEEDINGS OF SIMAI 2023
+  threads:
+  - medimg
+  selected: false
+- title: Development of a partial correlation algorithm to estimate functional connectivity in cortical networks
+  venue: ''
+  threads: []
+  selected: false
+- title: 'TRAIL: Navigating the Jungle of Machine Unlearning Evaluation'
+  venue: 3rd Workshop and Challenge on Unlearning
+  threads:
+  - bias
+  selected: false
