@@ -58,6 +58,16 @@
   venue: NeurIPS 2026
   title: Area Chair
 
+  - date: "2025-03"
+  kind: role
+  venue: ICML 2025
+  title: Area Chair
+
+  - date: "2026-11"
+  kind: role
+  venue: CVPR 2027
+  title: Area Chair
+
 - date: "2026-02"
   kind: paper
   venue: CVPR 2026
