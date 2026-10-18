@@ -9,27 +9,67 @@ redirect_from:
 
 {% include base_path %}
 
-<style>
+{% assign MONTHS = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec" | split: "," %}
+{% assign items = "" | split: "" %}
+{% if site.data.news %}{% assign items = site.data.news | sort: "date" | reverse %}{% endif %}
+{% assign nAll = items | size %}
+{% assign nPaper = items | where: "kind", "paper" | size %}
+{% assign nEvent = items | where: "kind", "event" | size %}
+{% assign nRole = items | where: "kind", "role" | size %}
+{% assign nAward = items | where: "kind", "award" | size %}
 
+<style>
 .nw{--accent:#2f7d95;--rule:rgba(128,128,128,.28);--wash:rgba(128,128,128,.07);line-height:1.5}
+
+.nw .nf{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;
+        clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
 .nw .bar{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 .9rem}
-.nw .chip{font:inherit;font-size:.85rem;font-weight:500;padding:.35rem .75rem;cursor:pointer;
-          background:none;border:1px solid var(--rule);color:inherit;border-radius:2px}
+.nw .chip{display:inline-block;font-size:.85rem;font-weight:500;padding:.35rem .75rem;cursor:pointer;
+          border:1px solid var(--rule);border-radius:2px;user-select:none}
 .nw .chip:hover{border-color:var(--accent);color:var(--accent)}
-.nw .chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
-.nw .chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.nw #nf-all:checked    ~ .bar .chip[for="nf-all"],
+.nw #nf-paper:checked  ~ .bar .chip[for="nf-paper"],
+.nw #nf-event:checked  ~ .bar .chip[for="nf-event"],
+.nw #nf-role:checked   ~ .bar .chip[for="nf-role"],
+.nw #nf-award:checked  ~ .bar .chip[for="nf-award"]{
+  background:var(--accent);border-color:var(--accent);color:#fff}
+
+.nw #nf-all:focus-visible    ~ .bar .chip[for="nf-all"],
+.nw #nf-paper:focus-visible  ~ .bar .chip[for="nf-paper"],
+.nw #nf-event:focus-visible  ~ .bar .chip[for="nf-event"],
+.nw #nf-role:focus-visible   ~ .bar .chip[for="nf-role"],
+.nw #nf-award:focus-visible  ~ .bar .chip[for="nf-award"]{
+  outline:2px solid var(--accent);outline-offset:2px}
+
 .nw .status{margin:0 0 1.9rem;font-size:.85rem;opacity:.68}
+.nw #nf-all:checked   ~ .status::after{content:"All {{ nAll }} items, newest first."}
+.nw #nf-paper:checked ~ .status::after{content:"{{ nPaper }} of {{ nAll }} items \2014 papers"}
+.nw #nf-event:checked ~ .status::after{content:"{{ nEvent }} of {{ nAll }} items \2014 workshops & talks"}
+.nw #nf-role:checked  ~ .status::after{content:"{{ nRole }} of {{ nAll }} items \2014 roles"}
+.nw #nf-award:checked ~ .status::after{content:"{{ nAward }} of {{ nAll }} items \2014 recognition"}
+
+.nw #nf-paper:checked ~ .feed .item:not([data-kind="paper"]),
+.nw #nf-event:checked ~ .feed .item:not([data-kind="event"]),
+.nw #nf-role:checked  ~ .feed .item:not([data-kind="role"]),
+.nw #nf-award:checked ~ .feed .item:not([data-kind="award"]){display:none}
+
+.nw #nf-paper:checked ~ .feed .year,
+.nw #nf-event:checked ~ .feed .year,
+.nw #nf-role:checked  ~ .feed .year,
+.nw #nf-award:checked ~ .feed .year{display:none}
+
 .nw .year{display:grid;grid-template-columns:7rem 1fr;gap:0 1.75rem;align-items:center;margin:0}
-.nw .year[hidden]{display:none}
 .nw .year__n{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;text-align:right;
              font-variant-numeric:tabular-nums;opacity:.45}
 .nw .year__r{height:1px;background:var(--rule)}
 .nw .year--later{margin-top:2.25rem}
+
 .nw .feed{margin:0;padding:0;list-style:none}
 .nw .item{display:grid;grid-template-columns:7rem 1fr;gap:0 1.75rem;align-items:start}
-.nw .item[hidden]{display:none}
-.nw .when{padding:1.05rem 0 0;text-align:right;font-size:.85rem;font-variant-numeric:tabular-nums;opacity:.6;
-          white-space:nowrap}
+.nw .when{padding:1.05rem 0 0;text-align:right;font-size:.85rem;font-variant-numeric:tabular-nums;
+          opacity:.6;white-space:nowrap}
 .nw .body{padding:1.05rem 0 .3rem;border-left:1px solid var(--rule);padding-left:1.75rem;
           margin-left:-1.75rem}
 .nw .item:last-child .body{padding-bottom:1.05rem}
@@ -43,6 +83,7 @@ redirect_from:
           text-decoration:underline;text-underline-offset:.2em;text-decoration-thickness:1px}
 .nw .link:hover{text-decoration-thickness:2px}
 .nw a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
 .nw .block{margin:3.25rem 0 0}
 .nw .block h2{margin:0 0 1.1rem;padding-bottom:.5rem;border-bottom:1px solid var(--rule);
               font-size:1.3rem;font-weight:600;letter-spacing:-.02em}
@@ -63,24 +104,23 @@ redirect_from:
 }
 </style>
 
-{% assign MONTHS = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec" | split: "," %}
-{% assign items = "" | split: "" %}
-{% if site.data.news %}{% assign items = site.data.news | sort: "date" | reverse %}{% endif %}
-
 <div class="nw">
 
-  <div class="bar">
-    <button type="button" class="chip" data-kind="" aria-pressed="true">Everything</button>
-    <button type="button" class="chip" data-kind="paper" aria-pressed="false">Papers</button>
-    <button type="button" class="chip" data-kind="event" aria-pressed="false">Workshops &amp; talks</button>
-    <button type="button" class="chip" data-kind="role" aria-pressed="false">Roles</button>
-    <button type="button" class="chip" data-kind="award" aria-pressed="false">Recognition</button>
-  </div>
-  <p class="status" role="status" aria-live="polite"></p>
+  <input class="nf" type="radio" name="nf" id="nf-all" checked>
+  <input class="nf" type="radio" name="nf" id="nf-paper">
+  <input class="nf" type="radio" name="nf" id="nf-event">
+  <input class="nf" type="radio" name="nf" id="nf-role">
+  <input class="nf" type="radio" name="nf" id="nf-award">
 
-  {% if items.size == 0 %}
-  <p class="status">No news items found. Add <code>_data/news.yml</code> to the repository.</p>
-  {% endif %}
+  <div class="bar">
+    <label class="chip" for="nf-all">Everything</label>
+    <label class="chip" for="nf-paper">Papers</label>
+    <label class="chip" for="nf-event">Workshops &amp; talks</label>
+    <label class="chip" for="nf-role">Roles</label>
+    <label class="chip" for="nf-award">Recognition</label>
+  </div>
+
+  <p class="status"></p>
 
   <ol class="feed">
   {% assign prev = "" %}
@@ -88,12 +128,12 @@ redirect_from:
     {% assign parts = it.date | split: "-" %}
     {% assign yr = parts[0] %}
     {% if yr != prev %}
-      <li class="year{% unless prev == '' %} year--later{% endunless %}" data-year="{{ yr }}" aria-hidden="true">
+      <li class="year{% unless prev == '' %} year--later{% endunless %}" aria-hidden="true">
         <span class="year__n">{{ yr }}</span><span class="year__r"></span>
       </li>
       {% assign prev = yr %}
     {% endif %}
-    <li class="item" data-kind="{{ it.kind }}" data-year="{{ yr }}">
+    <li class="item" data-kind="{{ it.kind }}">
       <span class="when">{% if parts[1] %}{% assign mi = parts[1] | plus: 0 | minus: 1 %}{{ MONTHS[mi] }} {% endif %}{{ yr }}</span>
       <div class="body">
         <span class="kind">{{ it.kind }}</span>
@@ -124,57 +164,3 @@ redirect_from:
   </section>
 
 </div>
-
-<script>
-(function () {
-  var root = document.querySelector('.nw');
-  if (!root) return;
-
-  var chips  = Array.prototype.slice.call(root.querySelectorAll('.chip'));
-  var items  = Array.prototype.slice.call(root.querySelectorAll('.item'));
-  var years  = Array.prototype.slice.call(root.querySelectorAll('.year'));
-  var status = root.querySelector('.status');
-  var total  = items.length;
-
-  function apply(kind) {
-    var shown = 0, label = '';
-
-    chips.forEach(function (c) {
-      var on = c.getAttribute('data-kind') === kind;
-      c.setAttribute('aria-pressed', on ? 'true' : 'false');
-      if (on && kind) label = c.textContent.toLowerCase();
-    });
-
-    var live = {};
-    items.forEach(function (li) {
-      var match = !kind || li.getAttribute('data-kind') === kind;
-      li.hidden = !match;
-      if (match) { shown++; live[li.getAttribute('data-year')] = true; }
-    });
-
-    // hide a year rule when nothing is left under it
-    years.forEach(function (y) { y.hidden = !live[y.getAttribute('data-year')]; });
-
-    // the first visible year rule should not carry the extra top margin
-    var first = true;
-    years.forEach(function (y) {
-      if (y.hidden) return;
-      y.classList.toggle('year--later', !first);
-      first = false;
-    });
-
-    status.textContent = kind
-      ? shown + ' of ' + total + ' items — ' + label
-      : 'All ' + total + ' items, newest first.';
-  }
-
-  chips.forEach(function (c) {
-    c.addEventListener('click', function () {
-      var k = c.getAttribute('data-kind');
-      apply(c.getAttribute('aria-pressed') === 'true' && k ? '' : k);
-    });
-  });
-
-  apply('');
-})();
-</script>
