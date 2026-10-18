@@ -11,506 +11,118 @@ redirect_from:
 
 <style>
 /* ---------------------------------------------------------------
-   News page. Scoped under .news so nothing here leaks into the
-   rest of the Minimal Mistakes / academicpages theme.
-   Change --news-accent to your theme link colour if you want.
+   News stream. Scoped under .nw so nothing leaks into the rest of
+   the Minimal Mistakes / academicpages theme.
    --------------------------------------------------------------- */
 
-.news {
-  --news-accent: #2f7d95;
-  --news-rule: rgba(128, 128, 128, 0.28);
-  --news-wash: rgba(128, 128, 128, 0.07);
-  line-height: 1.5;
-}
+.nw{--accent:#2f7d95;--rule:rgba(128,128,128,.28);--wash:rgba(128,128,128,.07);line-height:1.5}
 
-/* Section headings ------------------------------------------------ */
+/* filter bar */
+.nw .bar{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 .9rem}
+.nw .chip{font:inherit;font-size:.85rem;font-weight:500;padding:.35rem .75rem;cursor:pointer;
+          background:none;border:1px solid var(--rule);color:inherit;border-radius:2px}
+.nw .chip:hover{border-color:var(--accent);color:var(--accent)}
+.nw .chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.nw .chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.nw .status{margin:0 0 1.9rem;font-size:.85rem;opacity:.68}
 
-.news .section {
-  margin: 0 0 3.25rem;
-}
+/* year rules */
+.nw .year{display:grid;grid-template-columns:7rem 1fr;gap:0 1.75rem;align-items:center;margin:0}
+.nw .year[hidden]{display:none}
+.nw .year__n{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;text-align:right;
+             font-variant-numeric:tabular-nums;opacity:.45}
+.nw .year__r{height:1px;background:var(--rule)}
+.nw .year--later{margin-top:2.25rem}
 
-.news .section:last-child {
-  margin-bottom: 0;
-}
+/* stream */
+.nw .feed{margin:0;padding:0;list-style:none}
+.nw .item{display:grid;grid-template-columns:7rem 1fr;gap:0 1.75rem;align-items:start}
+.nw .item[hidden]{display:none}
+.nw .when{padding:1.05rem 0 0;text-align:right;font-size:.85rem;font-variant-numeric:tabular-nums;opacity:.6;
+          white-space:nowrap}
+.nw .body{padding:1.05rem 0 .3rem;border-left:1px solid var(--rule);padding-left:1.75rem;
+          margin-left:-1.75rem}
+.nw .item:last-child .body{padding-bottom:1.05rem}
 
-.news .section__title {
-  margin: 0 0 1.75rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--news-rule);
-  font-size: 1.3rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-}
+.nw .kind{display:inline-block;margin:0 0 .25rem;font-size:.72rem;font-weight:700;
+          letter-spacing:.06em;text-transform:uppercase;opacity:.5}
+.nw .venue{font-weight:700;letter-spacing:-.01em}
+.nw .title{margin:0;max-width:64ch;font-size:1rem;line-height:1.45}
+.nw .detail{display:block;margin-top:.2rem;max-width:64ch;font-size:.875rem;opacity:.72}
+.nw .link{display:inline-block;margin-top:.35rem;font-size:.85rem;font-weight:500;color:var(--accent);
+          text-decoration:underline;text-underline-offset:.2em;text-decoration-thickness:1px}
+.nw .link:hover{text-decoration-thickness:2px}
+.nw a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
-/* Feed: venue marker in a left column, content against a hairline - */
+/* tail blocks */
+.nw .block{margin:3.25rem 0 0}
+.nw .block h2{margin:0 0 1.1rem;padding-bottom:.5rem;border-bottom:1px solid var(--rule);
+              font-size:1.3rem;font-weight:600;letter-spacing:-.02em}
+.nw .block ul{margin:0;padding:0;list-style:none}
+.nw .block li{padding:.5rem 0;border-bottom:1px solid var(--rule);font-size:1rem;line-height:1.45;max-width:64ch}
+.nw .block li:last-child{border-bottom:0}
+.nw .callout{padding:1.25rem 1.5rem;background:var(--wash);border-left:3px solid var(--accent)}
+.nw .callout p{margin:0 0 .7rem;max-width:62ch;font-size:1rem;line-height:1.5}
+.nw .callout p:last-child{margin-bottom:0}
 
-.news .feed {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.news .feed__item {
-  display: grid;
-  grid-template-columns: 7.5rem 1fr;
-  align-items: start;
-  margin: 0;
-  padding: 0;
-}
-
-.news .feed__marker {
-  padding: 0.1rem 1.5rem 0 0;
-  text-align: right;
-}
-
-.news .feed__venue {
-  display: block;
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: -0.015em;
-  line-height: 1.25;
-}
-
-.news .feed__year {
-  display: block;
-  margin-top: 0.15rem;
-  font-size: 0.8rem;
-  font-variant-numeric: tabular-nums;
-  opacity: 0.6;
-}
-
-.news .feed__body {
-  padding: 0 0 2.1rem 1.75rem;
-  border-left: 1px solid var(--news-rule);
-}
-
-.news .feed__item:last-child .feed__body {
-  padding-bottom: 0;
-}
-
-/* Entries --------------------------------------------------------- */
-
-.news .entry {
-  margin: 0 0 0.9rem;
-  max-width: 64ch;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.45;
-}
-
-.news .entry:last-child {
-  margin-bottom: 0;
-}
-
-.news .entry__note,
-.news .note {
-  display: block;
-  margin-top: 0.2rem;
-  max-width: 64ch;
-  font-size: 0.875rem;
-  font-weight: 400;
-  opacity: 0.72;
-}
-
-.news .link {
-  display: inline-block;
-  margin-top: 0.3rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--news-accent);
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-  text-decoration-thickness: 1px;
-}
-
-.news .link:hover,
-.news .link:focus {
-  text-decoration-thickness: 2px;
-}
-
-.news a:focus-visible {
-  outline: 2px solid var(--news-accent);
-  outline-offset: 3px;
-}
-
-/* Ledger: short year / label pairs (roles, qualifications) --------- */
-
-.news .ledger {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.news .ledger__row {
-  display: grid;
-  grid-template-columns: 7.5rem 1fr;
-  align-items: baseline;
-  padding: 0.55rem 0;
-  border-bottom: 1px solid var(--news-rule);
-}
-
-.news .ledger__row:last-child {
-  border-bottom: 0;
-}
-
-.news .ledger__venue {
-  padding-right: 1.5rem;
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: -0.015em;
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-.news .ledger__label {
-  font-size: 1rem;
-  line-height: 1.45;
-}
-
-/* Open positions: the one filled block on the page ---------------- */
-
-.news .callout {
-  padding: 1.25rem 1.5rem;
-  background: var(--news-wash);
-  border-left: 3px solid var(--news-accent);
-}
-
-.news .callout p {
-  margin: 0 0 0.7rem;
-  max-width: 64ch;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.news .callout p:last-child {
-  margin-bottom: 0;
-}
-
-/* Small screens: marker stacks above the entry -------------------- */
-
-@media (max-width: 40em) {
-  .news .feed__item {
-    grid-template-columns: 1fr;
-    padding-top: 1rem;
-    border-top: 1px solid var(--news-rule);
-  }
-
-  .news .feed__item:first-child {
-    padding-top: 0;
-    border-top: 0;
-  }
-
-  .news .feed__marker {
-    display: flex;
-    align-items: baseline;
-    gap: 0.5rem;
-    padding: 0 0 0.5rem;
-    text-align: left;
-  }
-
-  .news .feed__venue,
-  .news .feed__year {
-    display: inline;
-    margin-top: 0;
-  }
-
-  .news .feed__body {
-    padding: 0 0 1.5rem;
-    border-left: 0;
-  }
-
-  .news .ledger__row {
-    grid-template-columns: 1fr;
-  }
-
-  .news .ledger__venue {
-    padding: 0 0 0.15rem;
-    text-align: left;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .news * {
-    transition: none !important;
-  }
+@media (max-width:40em){
+  .nw .year,.nw .item{grid-template-columns:1fr;gap:0}
+  .nw .year__n{text-align:left}
+  .nw .year__r{display:none}
+  .nw .when{padding:1rem 0 .15rem;text-align:left}
+  .nw .body{padding:0 0 1rem;margin-left:0;border-left:0}
+  .nw .item{border-bottom:1px solid var(--rule)}
 }
 </style>
 
-<div class="news">
+{% assign MONTHS = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec" | split: "," %}
+{% assign items = site.data.news | sort: "date" | reverse %}
 
-  <!-- ============================================================ -->
-  <section class="section">
-    <h2 class="section__title">Accepted papers</h2>
+<div class="nw">
 
-    <ol class="feed">
+  <div class="bar">
+    <button type="button" class="chip" data-kind="" aria-pressed="true">Everything</button>
+    <button type="button" class="chip" data-kind="paper" aria-pressed="false">Papers</button>
+    <button type="button" class="chip" data-kind="event" aria-pressed="false">Workshops &amp; talks</button>
+    <button type="button" class="chip" data-kind="role" aria-pressed="false">Roles</button>
+    <button type="button" class="chip" data-kind="award" aria-pressed="false">Recognition</button>
+  </div>
+  <p class="status" role="status" aria-live="polite"></p>
 
-      
-      <li class="feed__item">
-        <div class="feed__marker">
-          <span class="feed__venue">WACV</span>
-          <span class="feed__year">2027</span>
-        </div>
-        <div class="feed__body">
-          <p class="entry">PACER: Curriculum Self-Training with Spatial Uncertainty for Pseudo-Label Selection in Few-Shot Anatomical Landmark Detection</p>
-          <p class="entry">Beyond the Generative Trilemma: Bias Amplification in Diffusion-GAN Hybrids</p>
-        </div>
+  <ol class="feed">
+  {% assign prev = "" %}
+  {% for it in items %}
+    {% assign parts = it.date | split: "-" %}
+    {% assign yr = parts[0] %}
+    {% if yr != prev %}
+      <li class="year{% unless prev == '' %} year--later{% endunless %}" data-year="{{ yr }}" aria-hidden="true">
+        <span class="year__n">{{ yr }}</span><span class="year__r"></span>
       </li>
+      {% assign prev = yr %}
+    {% endif %}
+    <li class="item" data-kind="{{ it.kind }}" data-year="{{ yr }}">
+      <span class="when">{% if parts[1] %}{% assign mi = parts[1] | plus: 0 | minus: 1 %}{{ MONTHS[mi] }} {% endif %}{{ yr }}</span>
+      <div class="body">
+        <span class="kind">{{ it.kind }}</span>
+        <p class="title"><span class="venue">{{ it.venue }}</span> &mdash; {{ it.title }}
+          {%- if it.detail %}<span class="detail">{{ it.detail }}</span>{% endif %}
+        </p>
+        {%- if it.url %}<a class="link" href="{{ it.url }}">More</a>{% endif %}
+      </div>
+    </li>
+  {% endfor %}
+  </ol>
 
-
-      
-        <li class="feed__item">
-        <div class="feed__marker">
-          <span class="feed__venue">NeurIPS</span>
-          <span class="feed__year">2026</span>
-        </div>
-        <div class="feed__body">
-          <p class="entry">Revisiting Diffusion Fine-Tuning for Unsupervised Domain Adaptation</p>
-          <p class="entry">SOLA: A Structured Operator Library for Attention in Pretrained Vision Transformers</p>
-        </div>
-      </li>
-      
-      <li class="feed__item">
-        <div class="feed__marker">
-          <span class="feed__venue">ECCV</span>
-          <span class="feed__year">2026</span>
-        </div>
-        <div class="feed__body">
-          <p class="entry">AracNet: Revealing Debiasing Signals across Layers with Shallow Monitors</p>
-        </div>
-      </li>
-
-      <li class="feed__item">
-        <div class="feed__marker">
-          <span class="feed__venue">TMLR</span>
-          <span class="feed__year">2026</span>
-        </div>
-        <div class="feed__body">
-          <p class="entry">VT-DUDA: Visual Token Conditioning for Diffusion-guided Unsupervised Domain Adaptation</p>
-        </div>
-      </li>
-
-      <li class="feed__item">
-        <div class="feed__marker">
-          <span class="feed__venue">MICCAI</span>
-          <span class="feed__year">2026</span>
-        </div>
-        <div class="feed__body">
-          <p class="entry">CDPM-Align: Multi-Scale Guidance-Aligned Diffusion Pretraining for Robust Few-Shot Anatomical Landmark Detection
-            <span class="entry__note">Accepted as Oral Presentation</span>
-          </p>
-        </div>
-      </li>
-
-      <li class="feed__item">
-        <div class="feed__marker">
-          <span class="feed__venue">ICML</span>
-          <span class="feed__year">2026</span>
-        </div>
-        <div class="feed__body">
-          <p class="entry">Distribution Alignment for One-Shot Federated Learning via Optimal Transport</p>
-        </div>
-      </li>
-
-      <li class="feed__item">
-        <div class="feed__marker">
-          <span class="feed__venue">ICPR</span>
-          <span class="feed__year">2026</span>
-        </div>
-        <div class="feed__body">
-          <p class="entry">CutClean: Neural Network Pruning for Privacy-Preserving Inference</p>
-        </div>
-      </li>
-
-      <li class="feed__item">
-        <div class="feed__marker">
-          <span class="feed__venue">CVPR</span>
-          <span class="feed__year">2026</span>
-        </div>
-        <div class="feed__body">
-          <p class="entry">Bias In, Bias Out? Finding Unbiased Subnetworks in Vanilla Models</p>
-          <p class="entry">If you can describe it, they can see it: Cross-Modal Learning of Visual Concepts from Textual Descriptions
-            <span class="entry__note">Findings track</span>
-          </p>
-        </div>
-      </li>
-
-      <li class="feed__item">
-        <div class="feed__marker">
-          <span class="feed__venue">WACV</span>
-          <span class="feed__year">2026</span>
-        </div>
-        <div class="feed__body">
-          <p class="entry">How I Met Your Bias: Investigating Bias Amplification in Diffusion Models</p>
-          <p class="entry">Lose Your Self (LoYS): An Adversarial Entropy-Based Unsupervised Approach for Model Debiasing</p>
-        </div>
-      </li>
-
-      <li class="feed__item">
-        <div class="feed__marker">
-          <span class="feed__venue">TMLR</span>
-          <span class="feed__year">2025</span>
-          <!-- TODO: add the year once confirmed, e.g. <span class="feed__year">2025</span> -->
-        </div>
-        <div class="feed__body">
-          <p class="entry">Say My Name: A Model's Bias Discovery Framework</p>
-          <a class="link" href="https://arxiv.org/abs/2408.09570">Read on arXiv</a>
-        </div>
-      </li>
-
-      <li class="feed__item">
-        <div class="feed__marker">
-          <span class="feed__venue">NeurIPS</span>
-          <span class="feed__year">2025</span>
-        </div>
-        <div class="feed__body">
-          <p class="entry">Diffusing DeBias: Synthetic Bias Amplification for Model Debiasing</p>
-          <a class="link" href="https://arxiv.org/abs/2502.09564">Read on arXiv</a>
-        </div>
-      </li>
-
-      <li class="feed__item">
-        <div class="feed__marker">
-          <span class="feed__venue">WACV</span>
-          <span class="feed__year">2025</span>
-        </div>
-        <div class="feed__body">
-          <p class="entry">Self-Supervised Pre-Training with Diffusion Model for Few-Shot Landmark Detection in X-Ray Images</p>
-          <p class="entry">Looking at Model Debiasing through the Lens of Anomaly Detection</p>
-        </div>
-      </li>
-
-    </ol>
-  </section>
-
-  <!-- ============================================================ -->
-  <section class="section">
-    <h2 class="section__title">Workshops, tutorials and sessions</h2>
-
-    <ol class="feed">
-
-      <li class="feed__item">
-        <div class="feed__marker">
-          <span class="feed__venue">ECCV</span>
-          <span class="feed__year">2026</span>
-        </div>
-        <div class="feed__body">
-          <p class="entry">Co-organising the 3rd FAILED workshop
-            <span class="entry__note">Fairness and ethics towards transparent AI: model debiasing. Malm&ouml;, Sweden.</span>
-          </p>
-          <a class="link" href="https://3rd-failed-workshop-eccv-2026.github.io/">Workshop website</a>
-        </div>
-      </li>
-
-      <li class="feed__item">
-        <div class="feed__marker">
-          <span class="feed__venue">ISBI</span>
-          <span class="feed__year">2026</span>
-        </div>
-        <div class="feed__body">
-          <p class="entry">Co-organised a special session on safety and reliability in medical imaging
-            <span class="entry__note">London, United Kingdom.</span>
-          </p>
-          <a class="link" href="https://biomedicalimaging.org/2026/special-sessions/">Session details</a>
-        </div>
-      </li>
-
-      <li class="feed__item">
-        <div class="feed__marker">
-          <span class="feed__venue">ICIAP</span>
-          <span class="feed__year">2025</span>
-        </div>
-        <div class="feed__body">
-          <p class="entry">Co-organised the tutorial &ldquo;A journey through model debiasing&rdquo;</p>
-          <a class="link" href="https://a-journey-through-model-debiasing.github.io/">Tutorial website</a>
-        </div>
-      </li>
-
-      <li class="feed__item">
-        <div class="feed__marker">
-          <span class="feed__venue">ICCV</span>
-          <span class="feed__year">2025</span>
-        </div>
-        <div class="feed__body">
-          <p class="entry">Co-organised the 2nd FAILED workshop
-            <span class="entry__note">Fairness and ethics towards transparent AI: model debiasing. Honolulu, Hawaii, USA.</span>
-          </p>
-          <a class="link" href="https://2nd-failed-workshop-iccv-2025.github.io/">Workshop website</a>
-        </div>
-      </li>
-
-      <li class="feed__item">
-        <div class="feed__marker">
-          <span class="feed__venue">ECCV</span>
-          <span class="feed__year">2024</span>
-        </div>
-        <div class="feed__body">
-          <p class="entry">Co-organised the 1st FAILED workshop
-            <span class="entry__note">Fairness and ethics towards transparent AI: model debiasing. Milan, Italy.</span>
-          </p>
-          <a class="link" href="https://failed-workshop-eccv-2024.github.io/">Workshop website</a>
-        </div>
-      </li>
-
-    </ol>
-  </section>
-
-  <!-- ============================================================ -->
-  <section class="section">
-    <h2 class="section__title">Editorial roles and recognition</h2>
-    <ul class="ledger">
-      <li class="ledger__row">
-        <span class="ledger__venue">CVPR 2027</span>
-        <span class="ledger__label">Area Chair</span>
-      </li>
-    <ul class="ledger">
-      <li class="ledger__row">
-        <span class="ledger__venue">NeurIPS 2026</span>
-        <span class="ledger__label">Area Chair</span>
-      </li>
-      <li class="ledger__row">
-        <span class="ledger__venue">ICML 2026</span>
-        <span class="ledger__label">Area Chair</span>
-      </li>
-          <li class="ledger__row">
-        <span class="ledger__venue">NeurIPS 2026</span>
-        <span class="ledger__label">Top Area Chair</span>
-      </li>
-      <li class="ledger__row">
-        <span class="ledger__venue">ICML 2025</span>
-        <span class="ledger__label">Top Area Chair</span>
-      </li>
-      <li class="ledger__row">
-        <span class="ledger__venue">CVPR 2025</span>
-        <span class="ledger__label">Outstanding Reviewer</span>
-      </li>
-      <li class="ledger__row">
-        <span class="ledger__venue">MICCAI 2024</span>
-        <span class="ledger__label">Honorable mention, reviewing</span>
-      </li>
+  <section class="block">
+    <h2>Qualifications</h2>
+    <ul>
+      <li>Italian National Scientific Qualification (ASN) as Associate Professor in Informatics</li>
+      <li>Italian National Scientific Qualification (ASN) as Associate Professor in Computer Engineering</li>
     </ul>
   </section>
 
-  <!-- ============================================================ -->
-  <section class="section">
-    <h2 class="section__title">Qualifications</h2>
-
-    <ul class="ledger">
-      <li class="ledger__row">
-        <span class="ledger__venue">ASN</span>
-        <span class="ledger__label">National scientific qualification as Associate Professor, Informatics</span>
-      </li>
-      <li class="ledger__row">
-        <span class="ledger__venue">ASN</span>
-        <span class="ledger__label">National scientific qualification as Associate Professor, Computer Engineering</span>
-      </li>
-    </ul>
-  </section>
-
-  <!-- ============================================================ -->
-  <section class="section">
-    <h2 class="section__title">Open positions</h2>
-
+  <section class="block">
+    <h2>Open positions</h2>
     <div class="callout">
       <p>I am looking for PhD students and postdocs to work on machine learning and computer vision, with applications in medical, biological and industrial settings.</p>
       <p>Open calls are posted here as they become available.</p>
@@ -519,3 +131,57 @@ redirect_from:
   </section>
 
 </div>
+
+<script>
+(function () {
+  var root = document.querySelector('.nw');
+  if (!root) return;
+
+  var chips  = Array.prototype.slice.call(root.querySelectorAll('.chip'));
+  var items  = Array.prototype.slice.call(root.querySelectorAll('.item'));
+  var years  = Array.prototype.slice.call(root.querySelectorAll('.year'));
+  var status = root.querySelector('.status');
+  var total  = items.length;
+
+  function apply(kind) {
+    var shown = 0, label = '';
+
+    chips.forEach(function (c) {
+      var on = c.getAttribute('data-kind') === kind;
+      c.setAttribute('aria-pressed', on ? 'true' : 'false');
+      if (on && kind) label = c.textContent.toLowerCase();
+    });
+
+    var live = {};
+    items.forEach(function (li) {
+      var match = !kind || li.getAttribute('data-kind') === kind;
+      li.hidden = !match;
+      if (match) { shown++; live[li.getAttribute('data-year')] = true; }
+    });
+
+    // hide a year rule when nothing is left under it
+    years.forEach(function (y) { y.hidden = !live[y.getAttribute('data-year')]; });
+
+    // the first visible year rule should not carry the extra top margin
+    var first = true;
+    years.forEach(function (y) {
+      if (y.hidden) return;
+      y.classList.toggle('year--later', !first);
+      first = false;
+    });
+
+    status.textContent = kind
+      ? shown + ' of ' + total + ' items — ' + label
+      : 'All ' + total + ' items, newest first.';
+  }
+
+  chips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      var k = c.getAttribute('data-kind');
+      apply(c.getAttribute('aria-pressed') === 'true' && k ? '' : k);
+    });
+  });
+
+  apply('');
+})();
+</script>
