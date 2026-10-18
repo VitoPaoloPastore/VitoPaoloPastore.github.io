@@ -1,28 +1,187 @@
---- layout: archive permalink: /news/ title: "News" author_profile: true redirect_from: - /wordpress/blog-posts/ --- {% include base_path %} {% assign MONTHS = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec" | split: "," %} {% assign items = site.data.news | sort: "date" | reverse %}
-Everything
-Papers
-Workshops & talks
-Roles
-Recognition
-All 1 items, newest first.
+---
+layout: archive
+permalink: /news/
+title: "News"
+author_profile: true
+redirect_from:
+  - /wordpress/blog-posts/
+---
 
-{% assign prev = "" %} {% for it in items %} {% assign parts = it.date | split: "-" %} {% assign yr = parts[0] %} {% if yr != prev %}
-{{ yr }}
-{% assign prev = yr %} {% endif %}
-{% if parts[1] %}{% assign mi = parts[1] | plus: 0 | minus: 1 %}{{ MONTHS[mi] }} {% endif %}{{ yr }}
-{{ it.kind }}
-{{ it.venue }} — {{ it.title }} {%- if it.detail %}
-{{ it.detail }}
-{% endif %}
+{% include base_path %}
 
-{%- if it.url %}More{% endif %}
-{% endfor %}
-Qualifications
-Italian National Scientific Qualification (ASN) as Associate Professor in Informatics
-Italian National Scientific Qualification (ASN) as Associate Professor in Computer Engineering
-Open positions
-I am looking for PhD students and postdocs to work on machine learning and computer vision, with applications in medical, biological and industrial settings.
+<style>
+/* ---------------------------------------------------------------
+   News stream. Scoped under .nw so nothing leaks into the rest of
+   the Minimal Mistakes / academicpages theme.
+   --------------------------------------------------------------- */
 
-Open calls are posted here as they become available.
+.nw{--accent:#2f7d95;--rule:rgba(128,128,128,.28);--wash:rgba(128,128,128,.07);line-height:1.5}
 
-All open positions at MaLGa
+/* filter bar */
+.nw .bar{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 .9rem}
+.nw .chip{font:inherit;font-size:.85rem;font-weight:500;padding:.35rem .75rem;cursor:pointer;
+          background:none;border:1px solid var(--rule);color:inherit;border-radius:2px}
+.nw .chip:hover{border-color:var(--accent);color:var(--accent)}
+.nw .chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.nw .chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.nw .status{margin:0 0 1.9rem;font-size:.85rem;opacity:.68}
+
+/* year rules */
+.nw .year{display:grid;grid-template-columns:7rem 1fr;gap:0 1.75rem;align-items:center;margin:0}
+.nw .year[hidden]{display:none}
+.nw .year__n{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;text-align:right;
+             font-variant-numeric:tabular-nums;opacity:.45}
+.nw .year__r{height:1px;background:var(--rule)}
+.nw .year--later{margin-top:2.25rem}
+
+/* stream */
+.nw .feed{margin:0;padding:0;list-style:none}
+.nw .item{display:grid;grid-template-columns:7rem 1fr;gap:0 1.75rem;align-items:start}
+.nw .item[hidden]{display:none}
+.nw .when{padding:1.05rem 0 0;text-align:right;font-size:.85rem;font-variant-numeric:tabular-nums;opacity:.6;
+          white-space:nowrap}
+.nw .body{padding:1.05rem 0 .3rem;border-left:1px solid var(--rule);padding-left:1.75rem;
+          margin-left:-1.75rem}
+.nw .item:last-child .body{padding-bottom:1.05rem}
+
+.nw .kind{display:inline-block;margin:0 0 .25rem;font-size:.72rem;font-weight:700;
+          letter-spacing:.06em;text-transform:uppercase;opacity:.5}
+.nw .venue{font-weight:700;letter-spacing:-.01em}
+.nw .title{margin:0;max-width:64ch;font-size:1rem;line-height:1.45}
+.nw .detail{display:block;margin-top:.2rem;max-width:64ch;font-size:.875rem;opacity:.72}
+.nw .link{display:inline-block;margin-top:.35rem;font-size:.85rem;font-weight:500;color:var(--accent);
+          text-decoration:underline;text-underline-offset:.2em;text-decoration-thickness:1px}
+.nw .link:hover{text-decoration-thickness:2px}
+.nw a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* tail blocks */
+.nw .block{margin:3.25rem 0 0}
+.nw .block h2{margin:0 0 1.1rem;padding-bottom:.5rem;border-bottom:1px solid var(--rule);
+              font-size:1.3rem;font-weight:600;letter-spacing:-.02em}
+.nw .block ul{margin:0;padding:0;list-style:none}
+.nw .block li{padding:.5rem 0;border-bottom:1px solid var(--rule);font-size:1rem;line-height:1.45;max-width:64ch}
+.nw .block li:last-child{border-bottom:0}
+.nw .callout{padding:1.25rem 1.5rem;background:var(--wash);border-left:3px solid var(--accent)}
+.nw .callout p{margin:0 0 .7rem;max-width:62ch;font-size:1rem;line-height:1.5}
+.nw .callout p:last-child{margin-bottom:0}
+
+@media (max-width:40em){
+  .nw .year,.nw .item{grid-template-columns:1fr;gap:0}
+  .nw .year__n{text-align:left}
+  .nw .year__r{display:none}
+  .nw .when{padding:1rem 0 .15rem;text-align:left}
+  .nw .body{padding:0 0 1rem;margin-left:0;border-left:0}
+  .nw .item{border-bottom:1px solid var(--rule)}
+}
+</style>
+
+{% assign MONTHS = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec" | split: "," %}
+{% assign items = site.data.news | sort: "date" | reverse %}
+
+<div class="nw">
+
+  <div class="bar">
+    <button type="button" class="chip" data-kind="" aria-pressed="true">Everything</button>
+    <button type="button" class="chip" data-kind="paper" aria-pressed="false">Papers</button>
+    <button type="button" class="chip" data-kind="event" aria-pressed="false">Workshops &amp; talks</button>
+    <button type="button" class="chip" data-kind="role" aria-pressed="false">Roles</button>
+    <button type="button" class="chip" data-kind="award" aria-pressed="false">Recognition</button>
+  </div>
+  <p class="status" role="status" aria-live="polite"></p>
+
+  <ol class="feed">
+  {% assign prev = "" %}
+  {% for it in items %}
+    {% assign parts = it.date | split: "-" %}
+    {% assign yr = parts[0] %}
+    {% if yr != prev %}
+      <li class="year{% unless prev == '' %} year--later{% endunless %}" data-year="{{ yr }}" aria-hidden="true">
+        <span class="year__n">{{ yr }}</span><span class="year__r"></span>
+      </li>
+      {% assign prev = yr %}
+    {% endif %}
+    <li class="item" data-kind="{{ it.kind }}" data-year="{{ yr }}">
+      <span class="when">{% if parts[1] %}{% assign mi = parts[1] | plus: 0 | minus: 1 %}{{ MONTHS[mi] }} {% endif %}{{ yr }}</span>
+      <div class="body">
+        <span class="kind">{{ it.kind }}</span>
+        <p class="title"><span class="venue">{{ it.venue }}</span> &mdash; {{ it.title }}
+          {%- if it.detail %}<span class="detail">{{ it.detail }}</span>{% endif %}
+        </p>
+        {%- if it.url %}<a class="link" href="{{ it.url }}">More</a>{% endif %}
+      </div>
+    </li>
+  {% endfor %}
+  </ol>
+
+  <section class="block">
+    <h2>Qualifications</h2>
+    <ul>
+      <li>Italian National Scientific Qualification (ASN) as Associate Professor in Informatics</li>
+      <li>Italian National Scientific Qualification (ASN) as Associate Professor in Computer Engineering</li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2>Open positions</h2>
+    <div class="callout">
+      <p>I am looking for PhD students and postdocs to work on machine learning and computer vision, with applications in medical, biological and industrial settings.</p>
+      <p>Open calls are posted here as they become available.</p>
+      <p><a class="link" href="https://malga.unige.it/#open-positions">All open positions at MaLGa</a></p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  var root = document.querySelector('.nw');
+  if (!root) return;
+
+  var chips  = Array.prototype.slice.call(root.querySelectorAll('.chip'));
+  var items  = Array.prototype.slice.call(root.querySelectorAll('.item'));
+  var years  = Array.prototype.slice.call(root.querySelectorAll('.year'));
+  var status = root.querySelector('.status');
+  var total  = items.length;
+
+  function apply(kind) {
+    var shown = 0, label = '';
+
+    chips.forEach(function (c) {
+      var on = c.getAttribute('data-kind') === kind;
+      c.setAttribute('aria-pressed', on ? 'true' : 'false');
+      if (on && kind) label = c.textContent.toLowerCase();
+    });
+
+    var live = {};
+    items.forEach(function (li) {
+      var match = !kind || li.getAttribute('data-kind') === kind;
+      li.hidden = !match;
+      if (match) { shown++; live[li.getAttribute('data-year')] = true; }
+    });
+
+    // hide a year rule when nothing is left under it
+    years.forEach(function (y) { y.hidden = !live[y.getAttribute('data-year')]; });
+
+    // the first visible year rule should not carry the extra top margin
+    var first = true;
+    years.forEach(function (y) {
+      if (y.hidden) return;
+      y.classList.toggle('year--later', !first);
+      first = false;
+    });
+
+    status.textContent = kind
+      ? shown + ' of ' + total + ' items — ' + label
+      : 'All ' + total + ' items, newest first.';
+  }
+
+  chips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      var k = c.getAttribute('data-kind');
+      apply(c.getAttribute('aria-pressed') === 'true' && k ? '' : k);
+    });
+  });
+
+  apply('');
+})();
+</script>
