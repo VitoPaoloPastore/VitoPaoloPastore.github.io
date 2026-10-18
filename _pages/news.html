@@ -10,14 +10,8 @@ redirect_from:
 {% include base_path %}
 
 <style>
-/* ---------------------------------------------------------------
-   News stream. Scoped under .nw so nothing leaks into the rest of
-   the Minimal Mistakes / academicpages theme.
-   --------------------------------------------------------------- */
 
 .nw{--accent:#2f7d95;--rule:rgba(128,128,128,.28);--wash:rgba(128,128,128,.07);line-height:1.5}
-
-/* filter bar */
 .nw .bar{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 .9rem}
 .nw .chip{font:inherit;font-size:.85rem;font-weight:500;padding:.35rem .75rem;cursor:pointer;
           background:none;border:1px solid var(--rule);color:inherit;border-radius:2px}
@@ -25,16 +19,12 @@ redirect_from:
 .nw .chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
 .nw .chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .nw .status{margin:0 0 1.9rem;font-size:.85rem;opacity:.68}
-
-/* year rules */
 .nw .year{display:grid;grid-template-columns:7rem 1fr;gap:0 1.75rem;align-items:center;margin:0}
 .nw .year[hidden]{display:none}
 .nw .year__n{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;text-align:right;
              font-variant-numeric:tabular-nums;opacity:.45}
 .nw .year__r{height:1px;background:var(--rule)}
 .nw .year--later{margin-top:2.25rem}
-
-/* stream */
 .nw .feed{margin:0;padding:0;list-style:none}
 .nw .item{display:grid;grid-template-columns:7rem 1fr;gap:0 1.75rem;align-items:start}
 .nw .item[hidden]{display:none}
@@ -53,8 +43,6 @@ redirect_from:
           text-decoration:underline;text-underline-offset:.2em;text-decoration-thickness:1px}
 .nw .link:hover{text-decoration-thickness:2px}
 .nw a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-
-/* tail blocks */
 .nw .block{margin:3.25rem 0 0}
 .nw .block h2{margin:0 0 1.1rem;padding-bottom:.5rem;border-bottom:1px solid var(--rule);
               font-size:1.3rem;font-weight:600;letter-spacing:-.02em}
