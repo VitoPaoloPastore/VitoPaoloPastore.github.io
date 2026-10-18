@@ -1,0 +1,145 @@
+# _data/news.yml
+#
+# One reverse-chronological stream. Sorted by `date`, newest first.
+#
+#   date:    YYYY-MM. Month precision is enough.
+#   kind:    paper | event | role | award   (drives the filter chips)
+#   title:   the headline of the item
+#   venue:   shown as the marker on the left
+#   detail:  optional second line
+#   url:     optional link
+#
+# >>> EVERY DATE BELOW IS MY ESTIMATE, NOT A FACT. <<<
+# Your old page carried no dates at all, so I reconstructed these from when
+# each venue typically notifies authors. They set the ordering and they are
+# printed on the page, so correct them before publishing. Anything you are
+# unsure of: delete the `date` line and the item falls to the bottom of its
+# year rather than claiming a month it does not have.
+
+- date: 2026-09
+  kind: event
+  venue: ECCV 2026
+  title: Co-organising the 3rd FAILED workshop
+  detail: Fairness and ethics towards transparent AI — model debiasing. Malmö, Sweden.
+  url: https://3rd-failed-workshop-eccv-2026.github.io/
+
+- date: 2026-08
+  kind: paper
+  venue: ICPR 2026
+  title: "CutClean: Neural Network Pruning for Privacy-Preserving Inference"
+
+- date: 2026-07
+  kind: paper
+  venue: ECCV 2026
+  title: "AracNet: Revealing Debiasing Signals across Layers with Shallow Monitors"
+
+- date: 2026-06
+  kind: paper
+  venue: TMLR 2026
+  title: "VT-DUDA: Visual Token Conditioning for Diffusion-guided Unsupervised Domain Adaptation"
+
+- date: 2026-05
+  kind: paper
+  venue: MICCAI 2026
+  title: "CDPM-Align: Multi-Scale Guidance-Aligned Diffusion Pretraining for Robust Few-Shot Anatomical Landmark Detection"
+  detail: Early accept.
+
+- date: 2026-05
+  kind: paper
+  venue: ICML 2026
+  title: Distribution Alignment for One-Shot Federated Learning via Optimal Transport
+
+- date: 2026-04
+  kind: event
+  venue: ISBI 2026
+  title: Co-organised a special session on safety and reliability in medical imaging
+  detail: London, United Kingdom.
+  url: https://biomedicalimaging.org/2026/special-sessions/
+
+- date: 2026-03
+  kind: role
+  venue: NeurIPS 2026
+  title: Area Chair
+
+- date: 2026-02
+  kind: paper
+  venue: CVPR 2026
+  title: "Bias In, Bias Out? Finding Unbiased Subnetworks in Vanilla Models"
+
+- date: 2026-02
+  kind: paper
+  venue: CVPR 2026
+  title: "If you can describe it, they can see it: Cross-Modal Learning of Visual Concepts from Textual Descriptions"
+  detail: Findings track.
+
+- date: 2026-01
+  kind: role
+  venue: ICML 2026
+  title: Area Chair
+
+- date: 2025-10
+  kind: event
+  venue: ICCV 2025
+  title: Co-organised the 2nd FAILED workshop
+  detail: Fairness and ethics towards transparent AI — model debiasing. Honolulu, Hawaii, USA.
+  url: https://2nd-failed-workshop-iccv-2025.github.io/
+
+- date: 2025-10
+  kind: paper
+  venue: WACV 2026
+  title: "How I Met Your Bias: Investigating Bias Amplification in Diffusion Models"
+
+- date: 2025-10
+  kind: paper
+  venue: WACV 2026
+  title: "Lose Your Self (LoYS): An Adversarial Entropy-Based Unsupervised Approach for Model Debiasing"
+
+- date: 2025-09
+  kind: paper
+  venue: NeurIPS 2025
+  title: "Diffusing DeBias: Synthetic Bias Amplification for Model Debiasing"
+  url: https://arxiv.org/abs/2502.09564
+
+- date: 2025-09
+  kind: event
+  venue: ICIAP 2025
+  title: Co-organised the tutorial “A journey through model debiasing”
+  url: https://a-journey-through-model-debiasing.github.io/
+
+- date: 2025-07
+  kind: award
+  venue: ICML 2025
+  title: Top Area Chair
+
+- date: 2025-06
+  kind: award
+  venue: CVPR 2025
+  title: Outstanding Reviewer
+
+- date: 2025-05
+  kind: paper
+  venue: TMLR 2025
+  title: "Say My Name: A Model's Bias Discovery Framework"
+  url: https://arxiv.org/abs/2408.09570
+
+- date: 2024-10
+  kind: award
+  venue: MICCAI 2024
+  title: Honorable mention, reviewing
+
+- date: 2024-10
+  kind: paper
+  venue: WACV 2025
+  title: Self-Supervised Pre-Training with Diffusion Model for Few-Shot Landmark Detection in X-Ray Images
+
+- date: 2024-10
+  kind: paper
+  venue: WACV 2025
+  title: Looking at Model Debiasing through the Lens of Anomaly Detection
+
+- date: 2024-09
+  kind: event
+  venue: ECCV 2024
+  title: Co-organised the 1st FAILED workshop
+  detail: Fairness and ethics towards transparent AI — model debiasing. Milan, Italy.
+  url: https://failed-workshop-eccv-2024.github.io/
