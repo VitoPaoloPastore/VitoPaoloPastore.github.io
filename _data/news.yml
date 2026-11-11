@@ -13,6 +13,18 @@
   venue: WACV 2027
   title: "Beyond the Generative Trilemma: Bias Amplification in Diffusion-GAN Hybrids"
 
+  
+- date: "2026-09"
+  kind: paper
+  venue: NeurIPS 2026
+  title: "SOLA: A Structured Operator Library for Attention in Pretrained Vision Transformers"
+
+  
+- date: "2026-09"
+  kind: paper
+  venue: NeurIPS 2026
+  title: "Revisiting Diffusion Fine-Tuning for Unsupervised Domain Adaptation"
+
 - date: "2026-09"
   kind: event
   venue: ECCV 2026
